@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Photography Portfolio</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <h1>Christina Cappelli Photography</h1>
+    <nav>
+  <a href="#gallery" aria-label="Gallery">Gallery</a>
+    </nav>
+  </header>
+  <main>
+    <section id="gallery">
+      <div class="gallery-categories">
+        <button class="category-btn" data-category="travel">Travel</button>
+        <button class="category-btn" data-category="portrait">Portrait</button>
+        <button class="category-btn" data-category="runway">Runway</button>
+      </div>
+      <div class="gallery-grid" id="galleryGrid">
+        <!-- Images will be injected by JS -->
+      </div>
+      <div id="modal" class="modal">
+        <span class="close">&times;</span>
+        <img class="modal-content" id="modal-img">
+      </div>
+    </section>
+
+    <script>
+  document.addEventListener('dragstart', event => {
+    if (event.target.tagName === 'IMG') {
+      event.preventDefault();
+    }
+  });
+</script>
+
+  </main>
+  <footer>
+    <p>&copy; 2025 Christina Cappelli Photography</p>
+    E: christinacapp130[@]gmail.com | Brooklyn, NY
+  </footer>
+  <script src="script.js"></script>
+</body>
+</html>
