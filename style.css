@@ -1,3 +1,66 @@
+/* === RESPONSIVE EVEN GRID FOR GALLERY === */
+/* HIGH-IMPACT FASHION MAGAZINE PORTFOLIO */
+.gallery-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 64px;
+  width: 100%;
+  max-width: 900px;
+  margin: 0 auto 4rem auto;
+  padding: 0 2vw;
+  box-sizing: border-box;
+  background: #fff;
+}
+.gallery-grid img {
+  width: 100vw;
+  max-width: none;
+  max-height: 1600vh;
+  min-height: 200px;
+  min-width: 200px;
+  object-fit: cover;
+  display: block;
+  border-radius: 0;
+  box-shadow: 0 12px 48px rgba(0,0,0,0.18);
+  border: 2px solid #181818;
+  background: #fff;
+  margin: 0 auto;
+  transition: box-shadow 0.3s, transform 0.3s, border-color 0.3s;
+}
+.gallery-grid img:hover {
+  box-shadow: 0 24px 80px rgba(191,163,111,0.25);
+  transform: scale(1.03) translateY(-8px);
+  border-color: #bfa36f;
+  z-index: 2;
+}
+@media (max-width: 900px) {
+  .gallery-grid {
+    gap: 32px;
+    max-width: 98vw;
+  }
+  .gallery-grid img {
+    max-height: 60vh;
+  }
+}
+@media (max-width: 600px) {
+  .gallery-grid {
+    gap: 18px;
+    padding: 0 1vw;
+  }
+  .gallery-grid img {
+    max-height: 40vh;
+  }
+}
+.gallery-grid img {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+  display: block;
+  border-radius: 8px;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.08);
+  border: none;
+  background: #f7f7f7;
+}
+
 body {
   font-family: 'Playfair Display', 'Didot', 'Georgia', serif;
   margin: 0;
@@ -5,6 +68,9 @@ body {
   color: #181818;
   min-height: 100vh;
   letter-spacing: 0.01em;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
 }
 header {
   color: #181818;
@@ -15,13 +81,14 @@ header {
   border-bottom: 2px solid #18181810;
 }
 header h1 {
-  margin: 0 0 0.5rem 0;
-  font-size: 3.5rem;
+  margin: 0.5 0 0.5rem 0;
+  font-size: 30rem;
   font-family: 'Playfair Display', 'Didot', 'Georgia', serif;
-  font-weight: 700;
-  letter-spacing: 0.08em;
+  font-weight: 900;
+  letter-spacing: 0.12em;
   text-transform: uppercase;
-  line-height: 1.1;
+  line-height: 1.05;
+  word-break: break-word;
 }
 nav a {
   color: #181818;
@@ -36,7 +103,7 @@ nav a {
   border-bottom: 2px solid transparent;
 }
 nav a:hover {
-  color: #bfa36f;
+  color: #02a1fd;
   border-bottom: 2px solid #bfa36f;
 }
 main {
@@ -44,6 +111,7 @@ main {
   margin: 3rem auto 2rem auto;
   padding: 0 2rem;
   width: 100%;
+  flex: 1 0 auto;
 }
 /* Category Buttons */
 .gallery-categories {
@@ -141,12 +209,13 @@ section {
     gap: 1rem;
   }
   .gallery-grid {
-    gap: 0.7rem;
+    grid-template-columns: repeat(3, 1fr);
+    grid-auto-rows: 38vw;
+    gap: 18px;
+    padding: 0 2vw;
   }
   .gallery-grid img {
-    width: 140px;
-    height: 200px;
-    object-fit: cover;
+    border-radius: 0;
   }
 }
 @media (max-width: 600px) {
@@ -190,28 +259,13 @@ section {
   }
   /* MOBILE GALLERY GRID: 2 columns, large images, minimal gap */
   .gallery-grid {
-    display: grid !important;
-    grid-template-columns: repeat(2, 1fr) !important;
+    grid-template-columns: 1fr 1fr;
     grid-auto-rows: 48vw;
-    gap: 1px;
-    margin-top: 0.3rem;
-    margin-bottom: 0.3rem;
-    width: 100vw;
-    max-width: 100vw;
-    box-sizing: border-box;
-    padding: 0;
-    overflow-x: visible;
-    align-items: stretch;
+    gap: 8px;
+    padding: 0 2vw;
   }
   .gallery-grid img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
     border-radius: 0;
-    margin: 0;
-    box-shadow: none;
-    border: none;
-    background: #f7f7f7;
   }
   .gallery-grid img {
     width: 100%;
@@ -318,5 +372,6 @@ footer {
   letter-spacing: 0.08em;
   background: #fff;
   border-top: 2px solid #18181810;
+  flex-shrink: 0;
 }
 
